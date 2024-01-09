@@ -1,0 +1,5 @@
+CREATE TABLE USERS (
+    ID INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    USERNAME varchar(100) not null,
+    PASSWORD varchar(255) not null
+);
