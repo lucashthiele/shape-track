@@ -1,6 +1,6 @@
 package com.lucashthiele.shapetrack.controller;
 
-import com.lucashthiele.shapetrack.domain.user.CreateUserData;
+import com.lucashthiele.shapetrack.domain.user.UserDTO;
 import com.lucashthiele.shapetrack.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ public class UserController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<ResponseEntity.BodyBuilder> create(@RequestBody CreateUserData data, UriComponentsBuilder uriBuilder){
+    public ResponseEntity<ResponseEntity.BodyBuilder> create(@RequestBody UserDTO data, UriComponentsBuilder uriBuilder){
         var createdUserId = userService.createUser(data);
 
         var uri = uriBuilder.path("/user/{id}").buildAndExpand(createdUserId).toUri();

@@ -1,6 +1,6 @@
 package com.lucashthiele.shapetrack.controller;
 
-import com.lucashthiele.shapetrack.domain.authentication.AuthenticationData;
+import com.lucashthiele.shapetrack.domain.authentication.AuthenticationDTO;
 import com.lucashthiele.shapetrack.domain.authentication.JWTTokenData;
 import com.lucashthiele.shapetrack.domain.user.User;
 import com.lucashthiele.shapetrack.services.TokenService;
@@ -23,7 +23,7 @@ public class AuthenticationController {
     private TokenService tokenService;
 
     @PostMapping
-    public ResponseEntity<JWTTokenData> auth(@RequestBody AuthenticationData data) {
+    public ResponseEntity<JWTTokenData> auth(@RequestBody AuthenticationDTO data) {
         var authenticationToken = new UsernamePasswordAuthenticationToken(data.username(), data.password());
         var authentication = manager.authenticate(authenticationToken);
 
